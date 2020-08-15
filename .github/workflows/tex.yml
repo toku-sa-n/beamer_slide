@@ -21,22 +21,22 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
     - name: Install packages
-      run: sudo apt-get install texlive-lang-japanese texlive-lang-cjk texlive-fonts-recommended texlive-fonts-extra latexmk -y
-    
+      run: sudo apt-get install texlive-full latexmk -y
+
     - name: Set user info
       run: |
         git config --global user.name 'PDF generator'
         git config --global user.email 'toku-sa-n@users.noreply.github.com'
-    
+
     - name: Merge from develop
       run: git merge develop
-    
+
     - name: Generate PDF
       run: |
         latexmk main.tex
-    
+
     - name: Push to master
       run: |
         git add -f main.pdf
