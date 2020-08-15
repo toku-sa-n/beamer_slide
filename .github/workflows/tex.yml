@@ -46,6 +46,7 @@ jobs:
 
     - name: Generate PDF
       run: |
+        git checkout master
         latexmk main.tex -pdfdvi
 
     - name: Push to master
