@@ -1,0 +1,49 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Generate PDF
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Install packages
+      run: sudo apt-get install texlive-full latexmk -y
+
+    - name: Get jlisting.sty
+      run: |
+        wget http://sourceforge.jp/projects/mytexpert/downloads/26068/jlisting.sty.bz2
+        bzip2 -d jlisting.sty.bz2
+
+    - name: Set user info
+      run: |
+        git config --global user.name 'PDF generator'
+        git config --global user.email 'toku-sa-n@users.noreply.github.com'
+
+    - name: Merge from develop
+      run: git merge develop
+
+    - name: Generate PDF
+      run: |
+        latexmk main.tex -pdfdvi
+
+    - name: Push to master
+      run: |
+        git add -f main.pdf
+        git commit -m 'Generate main.pdf'
+        git push
