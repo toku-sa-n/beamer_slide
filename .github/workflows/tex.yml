@@ -47,6 +47,7 @@ jobs:
     - name: Generate PDF
       run: |
         git checkout master
+        git pull origin master
         latexmk main.tex -pdfdvi
 
     - name: Push to master
@@ -54,6 +55,4 @@ jobs:
         git add -f main.pdf
         git commit -m 'Generate main.pdf'
         git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        git fetch
-        git checkout master
         git push
