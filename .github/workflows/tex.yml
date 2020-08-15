@@ -25,6 +25,11 @@ jobs:
     - name: Install packages
       run: sudo apt-get install texlive-full latexmk -y
 
+    - name: Get jlisting.sty
+      run: |
+        wget http://sourceforge.jp/projects/mytexpert/downloads/26068/jlisting.sty.bz2
+        bzip2 -d jlisting.sty.bz2
+
     - name: Set user info
       run: |
         git config --global user.name 'PDF generator'
