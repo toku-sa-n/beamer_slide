@@ -1,0 +1,155 @@
+\documentclass[dvipdfmx,uplatex,a4j,12pt]{beamer}
+\usepackage{karnaugh-map}
+\usetheme{JuanLesPins}
+\usefonttheme{structuresmallcapsserif}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{jlisting}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\lstset{%
+    basicstyle={\ttfamily\small},
+    commentstyle={\ttfamily\small},
+    frame=tb,
+    breaklines=true,
+    lineskip=-0.5ex,
+    tabsize=2,
+    numbers=left,
+    numberstyle={\ttfamily\scriptsize},
+    columns=[1]{fullflexible},
+}
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+\renewcommand{\lstlistingname}{ソースコード}
+\renewcommand\proofname{\bf 証明}
+\newcommand\putsource[1]{
+    \begin{frame}
+        \frametitle{ソースコード}
+
+        \lstinputlisting[caption=]{#1}
+    \end{frame}
+}
+\newcommand\generateslides[1]{
+    \include{#1}
+    \putsource{#1.tex}
+}
+\begin{document}
+
+\title{Beamer:\LaTeX のもう一つの使い方}
+\author{toku\_san}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{内容}
+    \tableofcontents
+\end{frame}
+
+\section{はじめに}
+
+\begin{frame}
+    \frametitle{自己紹介}
+
+    \begin{enumerate}
+        \item 名前等
+            \begin{itemize}
+                \item toku\_san
+                \item 3年 I類 コンピュータサイエンスプログラム所属
+                    \item Twitter: \_toku\_san
+                \item Github: toku-sa-n
+            \end{itemize}
+        \item 好きなもの
+            \begin{itemize}
+                \item Rust
+                \item OS開発
+                \item Gentoo
+                \item Vim
+                \item i3wm
+                \item ラーメン
+            \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{このスライドの公開場所}
+
+    Githubに置いておきます．
+
+    \begin{verbatim}
+https://github.com/toku-sa-n/beamer_slide
+    \end{verbatim}
+\end{frame}
+
+\section{Beamerとは}
+
+\begin{frame}{Beamerとは}
+    Beamer is a \LaTeX class for creating presentations that are held using a projector, but it can also be usedto create transparency slides
+
+    -- Beamerのユーザーマニュアルより\cite{beamer_manual}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Beamerの利点}
+
+    \begin{itemize}
+        \item ソースコード等を楽に載せることができる
+        \item \LaTeX で書ける
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Beamerの欠点}
+
+    \begin{itemize}
+        \item \LaTeX で書かなければならない
+    \end{itemize}
+\end{frame}
+
+\section{Beamerを使う}
+\begin{frame}[fragile]
+    \frametitle{プリアンブル}
+    \begin{lstlisting}[language={tex}]
+\documentclass{beamer}
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{タイトルページ}
+    \lstinputlisting[caption=]{title.tex}
+\end{frame}
+
+\generateslides{equation}
+\generateslides{code}
+
+\begin{frame}{\lstinline{lstlisting}環境を使う場合の注意点}
+    \lstinline{frame}のオプションとして\lstinline{[fragile]}を追加する必要がある．\cite{why_fragile}．
+\end{frame}
+
+\generateslides{image}
+\generateslides{karnaugh-map}
+
+\begin{frame}[fragile]
+    \frametitle{\lstinline{karnaugh-map.sty}のインストール（Gentoo）}
+
+    \lstinline{karnaugh-map.sty}$\in$\lstinline{texlive-mathscience}は，\lstinline{xstring.sty}$\in$\lstinline{texlive-latexextra}に依存している．
+
+    \begin{lstlisting}[language={sh}, caption=\lstinline{e-file}]
+%sudo emerge -avt texlive-mathscience texlive-latexextra
+    \end{lstlisting}
+\end{frame}
+
+\generateslides{bib}
+
+\end{document}
