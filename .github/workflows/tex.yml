@@ -6,7 +6,7 @@ name: Generate PDF
 # events but only for the master branch
 on:
   push:
-    branches: [ develop ]
+    branches: [ master, develop ]
   pull_request:
     branches: [ master ]
 
