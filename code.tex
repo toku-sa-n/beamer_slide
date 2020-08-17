@@ -1,11 +1,18 @@
 \begin{frame}[fragile]
     \frametitle{ソースコードの例}
 
-    \begin{lstlisting}[caption={Исходный код}]
+    \begin{lstlisting}[caption={I'm mary...}]
 fn main() {
-    loop {
-        println!("Ураааа!!!")
+    let messages = [
+        "in the garbage dump",
+        "at the cigar stop",
+        "in your house",
+        "behind you",
+    ];
+
+    for message in &messages {
+        println!("I'm Mary. I'm {}.", message);
     }
 }
-    \end{lstlisting}
+\end{lstlisting}
 \end{frame}
