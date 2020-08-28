@@ -34,8 +34,7 @@
 \renewcommand{\lstlistingname}{ソースコード}
 \renewcommand\proofname{\bf 証明}
 \newcommand\putsource[1]{
-    \begin{frame}
-        \frametitle{ソースコード}
+    \begin{frame}{ソースコード}
 
         \lstinputlisting[caption=]{#1}
     \end{frame}
@@ -59,8 +58,7 @@
 
 \section{はじめに}
 
-\begin{frame}
-    \frametitle{自己紹介}
+\begin{frame}{自己紹介}
 
     \begin{enumerate}
         \item 名前等
@@ -82,8 +80,7 @@
     \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{このスライドの公開場所}
+\begin{frame}[fragile]{このスライドの公開場所}
 
     Githubに置いておきます．
 
@@ -100,33 +97,27 @@ https://github.com/toku-sa-n/beamer_slide
     --- Beamerのユーザーマニュアルより\cite{beamer_manual}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Beamerの利点}
-
+\begin{frame}{Beamerの利点}
     \begin{itemize}
         \item ソースコード等を楽に載せることができる
         \item \LaTeX で書ける
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Beamerの欠点}
-
+\begin{frame}{Beamerの欠点}
     \begin{itemize}
         \item \LaTeX で書かなければならない
     \end{itemize}
 \end{frame}
 
 \section{Beamerを使う}
-\begin{frame}[fragile]
-    \frametitle{プリアンブル}
+\begin{frame}[fragile]{プリアンブル}
     \begin{lstlisting}[language={tex}]
 \documentclass{beamer}
     \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{タイトルページ}
+\begin{frame}[fragile]{タイトルページ}
     \lstinputlisting[caption=]{title.tex}
 \end{frame}
 
@@ -137,11 +128,13 @@ https://github.com/toku-sa-n/beamer_slide
     \lstinline{frame}のオプションとして\lstinline{[fragile]}を追加する必要がある．\cite{why_fragile}．
 \end{frame}
 
+\generateslides{table}
+
+\generateslides{itemize}
 \generateslides{image}
 \generateslides{karnaugh-map}
 
-\begin{frame}[fragile]
-    \frametitle{\lstinline{karnaugh-map.sty}のインストール（Gentoo）}
+\begin{frame}[fragile]{\lstinline{karnaugh-map.sty}のインストール（Gentoo）}
 
     \lstinline{karnaugh-map.sty}$\in$\lstinline{texlive-mathscience}は，\lstinline{xstring.sty}$\in$\lstinline{texlive-latexextra}に依存している．
 
