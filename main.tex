@@ -22,14 +22,14 @@
     columns=[1]{fullflexible},
 }
 \AtBeginSection[]{
-  \begin{frame}
-  \vfill
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-    \usebeamerfont{title}\insertsectionhead\par%
-  \end{beamercolorbox}
-  \vfill
-  \end{frame}
+    \begin{frame}
+        \vfill
+        \centering
+        \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+            \usebeamerfont{title}\insertsectionhead\par%
+        \end{beamercolorbox}
+        \vfill
+    \end{frame}
 }
 \renewcommand{\lstlistingname}{ソースコード}
 \renewcommand\proofname{\bf 証明}
@@ -65,7 +65,7 @@
             \begin{itemize}
                 \item toku\_san
                 \item 3年 I類 コンピュータサイエンスプログラム所属
-                    \item Twitter: \_toku\_san
+                \item Twitter: \_toku\_san
                 \item Github: toku-sa-n
             \end{itemize}
         \item 好きなもの
@@ -139,8 +139,17 @@ https://github.com/toku-sa-n/beamer_slide
     \lstinline{karnaugh-map.sty}$\in$\lstinline{texlive-mathscience}は，\lstinline{xstring.sty}$\in$\lstinline{texlive-latexextra}に依存している．
 
     \begin{lstlisting}[language={sh}, caption=\lstinline{e-file}]
-%sudo emerge -avt texlive-mathscience texlive-latexextra
+    %sudo emerge -avt texlive-mathscience texlive-latexextra
     \end{lstlisting}
+\end{frame}
+
+\begin{frame}{まとめ}
+    \begin{itemize}
+        \item Beamerはいいぞ
+        \item Beamerはいいぞ
+        \item Beamerはいいぞ
+            \item https://github.com/toku-sa-n/beamer\_slide もよろ
+    \end{itemize}
 \end{frame}
 
 \generateslides{bib}
