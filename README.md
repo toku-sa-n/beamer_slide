@@ -1,6 +1,6 @@
 # Beamer: LaTeXのもう一つの使い方
 
-UEC18LT会で使用するスライドです．
+UEC18LT会で使用したスライドです．
 
 ## `main.pdf`
 
